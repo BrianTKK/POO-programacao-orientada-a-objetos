@@ -1,0 +1,1 @@
+Cada feat(n°) pode tem ou pode ter um código diferente do commit anterior, pra faciliar a exemplificação

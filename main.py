@@ -1,39 +1,34 @@
-try:
-    class Carro():
-        def __init__(self, modelo, fabricante):
-            self.modelo = modelo
-            self.fabricante = fabricante
-            self.__combustivel = 100
-        
-        @property
-        def combustivel(self):
-            return self.__combustivel
+class Veiculo():
+    def __init__(self, modelo, fabricante):
+        self.modelo = modelo
+        self.fabricante = fabricante
 
-        @combustivel.setter
-        def combustivel(self, valor):
-            if valor < self.__combustivel:
-                print("Valor de combustível mínimo invalido")
-            else:
-                self.__combustivel = valor
+    def acelerar(self):
+        print(F"Acelerando... {self.modelo} na estrada")
 
-        def acelerar(self):
-            if self.__combustivel <= 0:
-                print("Sem combustivel")
-            else:
-                self.__combustivel -= 10
-                print("Acelerando...")
+class Moto(Veiculo):
+    pass
 
+class Carro(Veiculo):
+    pass
 
-    meu_carro = Carro("Opala", "Chevrolet")
+class Aviao(Veiculo):
+    def acelerar(self):
+        print(F"Fiuuuuu... {self.modelo} nos ares!")
 
-    print(f"Fabricante: {meu_carro.fabricante}")
-    print(f"Modelo: {meu_carro.modelo}")
-    print(f"Combustivel: {meu_carro.__combustivel}")
+class Barco(Veiculo):
+    def acelerar(self):
+        print(F"Splash... {self.modelo} na agua!")
 
-    meu_carro.acelerar()
+meu_carro = Carro("Opala", "Chevrolet")
+meu_carro.acelerar()
 
-    print(f"Fabricante: {meu_carro.fabricante}")
-    print(f"Modelo: {meu_carro.modelo}")
-    print(f"Combustivel: {meu_carro.__combustivel}")
-except Exception as e:
-    print(f"Erro: {e}")
+minha_moto = Moto("ZX4R", "Kawasaki")
+minha_moto.acelerar()
+
+meu_aviao = Aviao("Boeing 777", "FAB")
+meu_aviao.acelerar()
+
+meu_barco = Barco("Barco A", "FAB")
+meu_barco.acelerar()
+
