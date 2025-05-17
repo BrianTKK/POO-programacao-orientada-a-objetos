@@ -1,16 +1,22 @@
-class Veiculo():
+from abc import ABC, abstractmethod
+
+class Veiculo(ABC):
     def __init__(self, modelo, fabricante):
         self.modelo = modelo
         self.fabricante = fabricante
 
+    @abstractmethod
     def acelerar(self):
-        print(F"Acelerando... {self.modelo} na estrada")
+        pass
 
 class Moto(Veiculo):
-    pass
+    def acelerar(self):
+        print(F"Vrroom... {self.modelo} na estrada")
 
 class Carro(Veiculo):
-    pass
+    def acelerar(self):
+        print(F"grugrugru... {self.modelo} dando partida.")
+        print(F"{self.modelo} na estrada!.")
 
 class Aviao(Veiculo):
     def acelerar(self):
