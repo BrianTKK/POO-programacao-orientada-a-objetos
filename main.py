@@ -1,40 +1,15 @@
-from abc import ABC, abstractmethod
+class Pessoa():
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
 
-class Veiculo(ABC):
-    def __init__(self, modelo, fabricante):
-        self.modelo = modelo
-        self.fabricante = fabricante
+    def __str__(self):
+        return f"Nome: {self.nome}, Idade: {self.idade}"
+    
+    def __repr__(self):
+        return f"Pessoa(nome='{self.nome}', idade={self.idade})"
 
-    @abstractmethod
-    def acelerar(self):
-        pass
+aluno = Pessoa("Lucas", 20)
 
-class Moto(Veiculo):
-    def acelerar(self):
-        print(F"Vrroom... {self.modelo} na estrada")
-
-class Carro(Veiculo):
-    def acelerar(self):
-        print(F"grugrugru... {self.modelo} dando partida.")
-        print(F"{self.modelo} na estrada!.")
-
-class Aviao(Veiculo):
-    def acelerar(self):
-        print(F"Fiuuuuu... {self.modelo} nos ares!")
-
-class Barco(Veiculo):
-    def acelerar(self):
-        print(F"Splash... {self.modelo} na agua!")
-
-meu_carro = Carro("Opala", "Chevrolet")
-meu_carro.acelerar()
-
-minha_moto = Moto("ZX4R", "Kawasaki")
-minha_moto.acelerar()
-
-meu_aviao = Aviao("Boeing 777", "FAB")
-meu_aviao.acelerar()
-
-meu_barco = Barco("Barco A", "FAB")
-meu_barco.acelerar()
-
+print(aluno)
+print(repr(aluno))
