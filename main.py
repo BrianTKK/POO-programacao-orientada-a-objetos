@@ -1,15 +1,20 @@
 class Pessoa():
-    def __init__(self, nome, idade):
+    def __init__(self, nome, idade, media):
         self.nome = nome
         self.idade = idade
+        self.media = media
 
-    def __str__(self):
-        return f"Nome: {self.nome}, Idade: {self.idade}"
+    def __eq__(self, outro_objeto):
+        return self.nome == outro_objeto.nome
     
     def __repr__(self):
-        return f"Pessoa(nome='{self.nome}', idade={self.idade})"
+        return f"{self.nome}"
+    
+    def __gt__(self, outro_objeto):
+        return self.media < outro_objeto.media
 
-aluno = Pessoa("Lucas", 20)
+aluno_00 = Pessoa("Lucas", 20, 8)
+aluno_01 = Pessoa("Alice", 22, 7)
+aluno_02 = Pessoa("Kreig", 24, 6)
 
-print(aluno)
-print(repr(aluno))
+print(sorted([aluno_00, aluno_01, aluno_02]))
